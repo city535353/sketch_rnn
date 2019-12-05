@@ -1,7 +1,8 @@
 
 const sketch = function(p) {
   const BASE_URL = 'https://storage.googleapis.com/quickdraw-models/sketchRNN/models/';
-  const availableModels = ['bird', 'ant','ambulance','angel','alarm_clock','antyoga','backpack','barn','basket','bear','bee','beeflower','bicycle','book','brain','bridge','bulldozer','bus','butterfly','cactus','calendar','castle','cat','catbus','catpig','chair','couch','crab','crabchair','crabrabbitfacepig','cruise_ship','diving_board','dog','dogbunny','dolphin','duck','elephant','elephantpig','everything','eye','face','fan','fire_hydrant','firetruck','flamingo','flower','floweryoga','frog','frogsofa','garden','hand','hedgeberry','hedgehog','helicopter','kangaroo','key','lantern','lighthouse','lion','lionsheep','lobster','map','mermaid','monapassport','monkey','mosquito','octopus','owl','paintbrush','palm_tree','parrot','passport','peas','penguin','pig','pigsheep','pineapple','pool','postcard','power_outlet','rabbit','rabbitturtle','radio','radioface','rain','rhinoceros','rifle','roller_coaster','sandwich','scorpion','sea_turtle','sheep','skull','snail','snowflake','speedboat','spider','squirrel','steak','stove','strawberry','swan','swing_set','the_mona_lisa','tiger','toothbrush','toothpaste','tractor','trombone','truck','whale','windmill','yoga','yogabicycle'];
+  const availableModels = ['bird', 'ant','ambulance','angel','alarm_clock','backpack','barn','basket','bear','bee','bicycle','book','brain','bridge','bulldozer','bus','butterfly','cactus','calendar','castle','cat','chair','couch','crab','dog','dolphin','duck','elephant','everything','eye','face','fan','flower','frog','garden','hand','hedgehog','helicopter','kangaroo','key','lantern','lighthouse','lion','lobster','map','mermaid','monkey','mosquito','octopus','owl','paintbrush','palm_tree','parrot','passport','peas','penguin','pig','pineapple','pool','postcard','power_outlet','rabbit','radio','rain','rhinoceros','rifle','roller_coaster','sandwich','scorpion','sea_turtle','sheep','skull','snail','snowflake','speedboat','spider','squirrel','steak','stove','strawberry','swan','tiger','toothbrush','toothpaste','tractor','trombone','truck','whale','windmill','yoga'];
+  const availableModelsc = ['鳥', '螞蟻', '救護車', '天使', '鬧鐘', '背包', '穀倉', '籃子', '熊', '蜂', '自行車', '書', '腦子', '橋梁', '推土機', '公共汽車', '蝴蝶', '仙人掌', '日曆', '城堡', '貓', '椅子', '長沙發', '螃蟹', '狗', '海豚', '鴨子', '大象', '一切', '眼睛','面孔', '風扇', '花', '青蛙', '庭院', '手', '猬', '直昇機', '袋鼠', '鑰匙', '燈籠', '燈塔', '獅子', '龍蝦', '地圖', '美人魚', '猴子', '蚊子', '章魚', '貓頭鷹', '油漆刷', '棕梠樹', '鸚鵡', '護照', '豌豆', '企鵝', '豬', '菠蘿', '水池', '明信片','電源插座', '兔子', '收音機', '雨', '犀牛', '步槍', '雲霄飛車', '三明治', '蠍子', '海龜', '綿羊', '頭骨', '蝸牛', '雪花', '高速游艇', '蜘蛛', '灰鼠', '牛排', '火爐', '草莓', '天鵝', '老虎', '牙刷', '牙膏', '拖拉機', '伸縮喇叭', '卡車', '鯨魚', '風車', '瑜伽'];
   let model;
   
   // Model
@@ -43,18 +44,16 @@ const sketch = function(p) {
     const screenHeight = Math.floor(containerSize.height);
     p.createCanvas(screenWidth, screenHeight);
     p.frameRate(60);
-
+ 
     restart();
-    initModel(22);  // Cat!
+    initModel(10);  // Cat!
     
-    selectModels.innerHTML = availableModels.map(m => `<option>${m}</option>`).join('');
-    selectModels.selectedIndex = 22; 
+    selectModels.innerHTML = availableModelsc.map(m => `<option>${m}</option>`).join('');
+    selectModels.selectedIndex = 10; 
     selectModels.addEventListener('change', () => initModel(selectModels.selectedIndex));
     btnClear.addEventListener('click', restart);
     btnRetry.addEventListener('click', retryMagic);
     btnHelp.addEventListener('click', () => {
-      splash.classList.remove('hidden');
-      splashIsOpen = true;
     });
     btnGo.addEventListener('click', () => {
       splashIsOpen = false;
